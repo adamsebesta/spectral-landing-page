@@ -29,7 +29,10 @@ video {
 .container {
   position: relative;
   width: 100%;
-  height: 100vh
+  height: 100vh;
+  scroll-behavior: smooth;
+  overflow: auto;
+  scroll-snap-type: y mandatory;
 }
 
 .section {
@@ -38,6 +41,7 @@ video {
   background-color: #0F0F18;
   display: flex;
   align-items: center;
+  scroll-snap-align: start;
 }
 
 .page-container {

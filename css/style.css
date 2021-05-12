@@ -7,7 +7,8 @@ body {
 h3,
 h5,
 p,
-button {
+button,
+input {
   margin: 0;
   font-family: Montserrat;
   font-style: normal;
@@ -95,6 +96,29 @@ video {
   font-family: Montserrat;
 }
 
+/* .btn-gradient {
+  border: 2px solid;
+  border-image-slice: 1;
+  border-width: 2px;
+  border-radius: 10px;
+  border-image-source: linear-gradient(257.92deg, #F04829 5.36%, #FAAF40 55.62%, #2D97FC 89.97%);
+} */
+
+.btn-gradient-wrapper {
+  width: 130px;
+  padding: 1px 1px;
+  border-radius: 100px;
+  position: relative;
+  background: linear-gradient(257.92deg, #F04829 5.36%, #FAAF40 55.62%, #2D97FC 89.97%);
+  z-index: 1;
+  /* padding: 3px; */
+}
+
+.btn-gradient-wrapper .btn {
+  border: unset;
+  margin: 0;
+}
+
 /* page 1 */
 
 
@@ -118,4 +142,60 @@ video {
 .page-4-geo {
   position: absolute;
   right: 0;
+}
+
+.page-5-geo {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.page-5 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-5-video {
+  position: relative;
+  z-index: 1;
+  left: 50%;
+  transform: translate(-50%, -20px);
+}
+
+.subscribe-text {
+  color: #E5EBF370;
+  font-size: 48px;
+  line-height: 59px;
+}
+
+.email-form {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  margin: 30px auto;
+  padding: 20px;
+  border: 1px solid #47474750;
+}
+
+.email-field {
+  width: 500px;
+  background: transparent;
+  border: none;
+  text-decoration: none;
+  color: #686868;
+  font-size: 21px;
+  line-height: 26px;
+}
+
+.email-field:focus {
+  outline-width: 0;
+
+}
+
+.email-form::placeholder {
+  color: #686868;
+  font-size: 21px;
+  line-height: 26px;
 }

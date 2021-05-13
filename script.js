@@ -116,9 +116,27 @@ const initPageScroll = () => {
 }
 
 const initBurgerMenu = () => {
-  document.querySelector('#burger-icon').addEventListener('click', (e) => {
-    e.currentTarget.toggleClass('open');
-  })
+  let burger = document.querySelector('#burger-menu');
+  let burgerIcon = document.querySelector('#burger-icon');
+  let navBtn = document.querySelector('nav #nav-btn');
+  let navMenu = document.querySelector('#nav-menu');
+  if (burger) {
+    burger.addEventListener('click', (e) => {
+      if (burgerIcon.classList.contains('open')) {
+        burgerIcon.classList.remove('open');
+        // slight delay when bringing 'app' button back
+        setTimeout(() => {
+          navBtn.style.display = "";
+        }, 150)
+        navMenu.style.transform = "translateX(120%)";
+
+      } else {
+        burgerIcon.classList.add('open');
+        navBtn.style.display = "none"
+        navMenu.style.transform = "translateX(0)";
+      }
+    })
+  }
 }
 
 const scrollPageToTop = () => {

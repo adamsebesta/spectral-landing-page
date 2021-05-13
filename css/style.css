@@ -149,6 +149,10 @@ video {
   border-radius: 12px;
 }
 
+.remove-on-desktop {
+  display: none;
+}
+
 
 .container {
   position: relative;
@@ -376,6 +380,10 @@ video {
     display: none;
   }
 
+  .remove-on-desktop {
+    display: block !important;
+  }
+
   .page-container {
     flex-direction: column;
     width: 85%;
@@ -494,4 +502,67 @@ video {
     text-align: center;
   }
 
+  .page-5-geo {
+    transform: translate(-50%, -126%);
+  }
+
+  .page-5-video {
+    width: 80% !important;
+    padding: 20px;
+  }
+
+  .subscribe-text {
+    font-size: 32px;
+    line-height: 39px;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .email-form {
+    font-size: 16px;
+    line-height: 20px;
+    margin: 60px auto;
+    width: 85%;
+    padding: 10px;
+  }
+
+  .email-field {
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  .email-form .btn {
+    padding: 8px 25px;
+  }
+
+
+  .footer {
+    flex-direction: column;
+    transform: unset;
+    position: unset;
+    width: 85%;
+    height: unset;
+    align-items: flex-start;
+  }
+
+  .footer-left,
+  .footer-right {
+    margin-bottom: 20px;
+  }
+
+  .footer-right .nav-link {
+    padding: 0;
+  }
+
+  .footer-right {
+    width: 70%;
+    padding-top: 10px;
+  }
+
+  .copyright {
+    font-size: 14px;
+    line-height: 21px;
+    margin: 20px 0;
+    text-align: left;
+  }
 }

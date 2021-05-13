@@ -1,6 +1,6 @@
 window.addEventListener('load', (event) => {
-  scrollPageToTop();
-  initPageScroll();
+  // scrollPageToTop();
+  // initPageScroll();
   initBurgerMenu();
 });
 

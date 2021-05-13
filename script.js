@@ -1,59 +1,10 @@
-// PAGECOUNTER = 1;
+window.addEventListener('load', (event) => {
+  scrollPageToTop();
+  initPageScroll();
+  initBurgerMenu();
+});
 
-// window.addEventListener('load', (event) => {
-//   initScrollListener();
-//   // always scroll back to top on refresh
-//   window.scrollTo({
-//     top: 0,
-//     behavior: 'smooth',
-//   })
-// });
-
-// const initScrollListener = () => {
-//   window.addEventListener('wheel', debounce_leading(handleScroll));
-
-// }
-
-// // throttling scroll
-// const debounce_leading = (func, timeout = 500) => {
-//   let timer;
-//   return (...args) => {
-//     if (!timer) {
-//       func.apply(this, args);
-//     }
-//     clearTimeout(timer);
-//     timer = setTimeout(() => {
-//       timer = undefined;
-//     }, timeout);
-//   };
-// }
-
-// const getPosAndScroll = () => {
-//   const pageTop = document.querySelector(`.page-${PAGECOUNTER}`).getBoundingClientRect().top
-//   let pos = pageTop + window.scrollY
-//   window.scrollTo({
-//     top: pos,
-//     behavior: 'smooth',
-//   })
-// }
-
-// const handleScroll = (e) => {
-//   let dir = e.deltaY > 0 ? "down" : "up";
-
-//   if (dir == 'down' && PAGECOUNTER < 5) {
-//     console.log('here')
-//     PAGECOUNTER += 1;
-//     getPosAndScroll()
-//   }
-
-//   if (dir == 'up' && PAGECOUNTER > 1) {
-//     PAGECOUNTER -= 1;
-//     getPosAndScroll()
-//   }
-
-// }
-
-(function () {
+const initPageScroll = () => {
   "use strict";
   /*[pan and container CSS scrolls]*/
   var pnls = document.querySelectorAll('.section').length,
@@ -162,4 +113,17 @@
       _scrollY(container);
     });
   }
-})();
+}
+
+const initBurgerMenu = () => {
+  document.querySelector('#burger-icon').addEventListener('click', (e) => {
+    e.currentTarget.toggleClass('open');
+  })
+}
+
+const scrollPageToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  })
+};

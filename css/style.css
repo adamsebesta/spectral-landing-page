@@ -18,6 +18,104 @@ input {
   font-weight: 600;
 }
 
+
+/* navbar */
+
+.top-nav {
+  position: absolute;
+  top: 0;
+  width: 95%;
+  height: 75px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+}
+
+.top-nav-right {
+  display: flex;
+  align-items: center;
+}
+
+#burger-icon {
+  width: 40px;
+  height: 45px;
+  position: relative;
+  top: 14px;
+  margin-left: 15px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .5s ease-in-out;
+  -moz-transition: .5s ease-in-out;
+  -o-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+  cursor: pointer;
+}
+
+#burger-icon span {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 60%;
+  /* background: linear-gradient(257.92deg, #F04829 5.36%, #FAAF40 55.62%, #2D97FC 89.97%); */
+  border-radius: 9px;
+  opacity: 1;
+  right: 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .25s ease-in-out;
+  -moz-transition: .25s ease-in-out;
+  -o-transition: .25s ease-in-out;
+  transition: .25s ease-in-out;
+}
+
+#burger-icon span:nth-child(1) {
+  top: 0px;
+  background: #2D97FC;
+}
+
+#burger-icon span:nth-child(2) {
+  top: 9px;
+  background: #FAAF40;
+  ;
+}
+
+#burger-icon span:nth-child(3) {
+  top: 18px;
+  background: #F04829;
+}
+
+#burger-icon.open span:nth-child(1) {
+  top: 18px;
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+
+#burger-icon.open span:nth-child(2) {
+  opacity: 0;
+  left: -60px;
+}
+
+#burger-icon.open span:nth-child(3) {
+  top: 18px;
+  -webkit-transform: rotate(-135deg);
+  -moz-transform: rotate(-135deg);
+  -o-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+}
+
+.width-unset {
+  width: unset !important;
+}
+
 .video-mask {
   height: 100%;
 }
@@ -43,7 +141,8 @@ video {
   background-color: #0F0F18;
   display: flex;
   align-items: center;
-  transition: 1s cubic-bezier(0.5, 0, 0.5, 1);
+  padding: 1em;
+  box-sizing: border-box;
 }
 
 .page-container {
@@ -100,6 +199,7 @@ video {
   margin: 20px 0;
   padding: 15px 40px;
   font-family: Montserrat;
+  cursor: pointer;
 }
 
 /* .btn-gradient {

@@ -1,11 +1,20 @@
-WINDOWWIDTH = 0;
+let body = document.querySelector('body')
+let modal = document.querySelector('#modal');
+let modalContent = document.querySelector('#modal .modal-content');
+let backBtn = document.querySelector('#back-btn');
+let appBtn = document.querySelector('#app-btn')
+let appBtnWrapper = document.querySelector('#app-btn-wrapper')
+let burger = document.querySelector('#burger-menu');
+let burgerIcon = document.querySelector('#burger-icon');
+let navMenu = document.querySelector('#nav-menu');
+let mobileNavMenu = document.querySelector('#mobile-nav-menu');
+
 
 window.addEventListener('load', (event) => {
   scrollPageToTop();
   initPageScroll();
   initBurgerMenu();
-  refreshPageONMobileResize();
-  WINDOWWIDTH = window.innerWidth
+  initModal();
 });
 
 const initPageScroll = () => {
@@ -16,7 +25,7 @@ const initPageScroll = () => {
 
   function _scrollY(obj) {
 
-    if (window.innerWidth >= 1100) {
+    if (window.innerWidth >= 1100 && modal.style.display != 'flex') {
 
       var slength, plength, pan, step = 100,
         vh = window.innerHeight / 100,
@@ -64,13 +73,22 @@ const initPageScroll = () => {
   container.addEventListener('wheel', _scrollY);
 }
 
-const refreshPageONMobileResize = () => {
-  window.addEventListener('resize', (e) => {
-    WINDOWWIDTH = e.target.innerWidth;
-    if (window.innerWidth > 1100 && WINDOWWIDTH < 1100) {
-      window.refresh();
-    }
-  });
+const initModal = () => {
+  if (modal && backBtn && appBtn) {
+    appBtn.addEventListener('click', (e) => {
+      modal.style.display = 'flex';
+      if (window.innerWidth <= 1100) {
+        modalContent.classList.add('modal-full-page');
+        body.classList.add('stop-scroll');
+      }
+    })
+    backBtn.addEventListener('click', (e) => {
+      modal.style.display = 'none';
+      if (window.innerWidth <= 1100) {
+        body.classList.remove('stop-scroll');
+      }
+    })
+  }
 }
 
 const initBurgerMenu = () => {
@@ -82,24 +100,20 @@ const initBurgerMenu = () => {
 }
 
 const desktopToggleMenu = () => {
-  let burger = document.querySelector('#burger-menu');
-  let burgerIcon = document.querySelector('#burger-icon');
-  let navBtn = document.querySelector('nav #nav-btn');
-  let navMenu = document.querySelector('#nav-menu');
   if (burger) {
     burger.addEventListener('click', (e) => {
       if (burgerIcon.classList.contains('open')) {
         burgerIcon.classList.remove('open');
         // slight delay when bringing 'app' button back
         setTimeout(() => {
-          navBtn.style.display = "";
+          appBtn.style.display = "";
         }, 150)
 
         navMenu.style.transform = "translateX(120%)";
 
       } else {
         burgerIcon.classList.add('open');
-        navBtn.style.display = "none"
+        appBtn.style.display = "none"
         navMenu.style.visibility = "visible";
         navMenu.style.transform = "translateX(0)";
       }
@@ -108,11 +122,6 @@ const desktopToggleMenu = () => {
 }
 
 const mobileToggleMenu = () => {
-  let burger = document.querySelector('#burger-menu');
-  let burgerIcon = document.querySelector('#burger-icon');
-  let navBtn = document.querySelector('nav #nav-btn');
-  let mobileNavMenu = document.querySelector('#mobile-nav-menu');
-  let body = document.querySelector('body');
   if (burger) {
     burger.addEventListener('touchstart', (e) => {
       if (burgerIcon.classList.contains('open')) {
@@ -120,7 +129,7 @@ const mobileToggleMenu = () => {
         burgerIcon.classList.remove('open');
         // slight delay when bringing 'app' button back
         setTimeout(() => {
-          navBtn.style.display = "";
+          appBtnWrapper.style.display = "";
         }, 550)
         body.classList.remove('stop-scroll');
         mobileNavMenu.style.transform = "translateY(-100%)";
@@ -128,7 +137,7 @@ const mobileToggleMenu = () => {
       } else {
         // open menu
         burgerIcon.classList.add('open');
-        navBtn.style.display = "none"
+        appBtnWrapper.style.display = "none"
         // inhibit scroll
         body.classList.add('stop-scroll');
         mobileNavMenu.style.visibility = "visible";

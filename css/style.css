@@ -163,8 +163,6 @@ video {
   background-color: #0F0F18;
   display: flex;
   align-items: center;
-  padding: 1em;
-  box-sizing: border-box;
 }
 
 .page-container {
@@ -326,4 +324,34 @@ video {
   color: #686868;
   font-size: 21px;
   line-height: 26px;
+}
+
+/* page 5 */
+
+.footer {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  height: 75px;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+}
+
+.copyright {
+  font-size: 14px;
+  line-height: 21px;
+  transform: translateY(2px);
+  margin-left: 30px;
+  color: #474747;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
 }

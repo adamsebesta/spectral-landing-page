@@ -148,6 +148,11 @@ input {
 
 .video-mask {
   height: 100%;
+
+}
+
+video:focus {
+  outline: none;
 }
 
 video {
@@ -288,16 +293,24 @@ video {
 .page-1 .page-heading:nth-child(1),
 .page-1 .page-heading:nth-child(2) {
   font-size: 56px;
+  line-height: 68px;
+}
+
+.page-1 .page-container {
+  overflow: hidden;
 }
 
 .page-1-video {
-  transform: scale(1.1);
+  /* // to kill black line on right of video */
+  transform: scale(1.1) translateX(20px);
+  float: left;
 }
 
 /* page 2 */
 .page-2-geo {
   position: absolute;
   right: 0;
+  width: 46%;
 }
 
 .page-2-video {
@@ -333,6 +346,12 @@ video {
   text-align: center;
 }
 
+.page-5-video-mask {
+  height: 150px;
+  overflow: hidden;
+  padding: 15px 0;
+}
+
 .page-5-video {
   position: relative;
   z-index: 1;
@@ -347,6 +366,8 @@ video {
   font-size: 48px;
   line-height: 59px;
   text-align: center;
+  padding-top: 40px;
+  padding-bottom: 30px;
 }
 
 .email-form {
@@ -564,6 +585,7 @@ video {
   .page-2-geo {
     right: -44px;
     transform: translate(22%, 29%);
+    width: 100%
   }
 
   .page-2-video {
@@ -582,7 +604,7 @@ video {
   }
 
   .page-3-geo {
-    transform: translate(-20%, 67%);
+    transform: translate(-50%, 67%);
   }
 
   .page-3-video {
@@ -598,7 +620,7 @@ video {
   }
 
   .page-4-geo {
-    transform: translate(32%, 20%);
+    transform: translate(62%, 20%);
   }
 
   /* page-5 */
@@ -610,10 +632,19 @@ video {
     transform: translate(-50%, -126%);
   }
 
+  .page-5-video-mask {
+    overflow: hidden;
+    height: 100px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
   .page-5-video {
-    width: 143% !important;
+    height: 100px;
     padding: 20px;
-    padding-bottom: 0;
+    padding-bottom: 10px;
+    padding-top: 0;
+    transform: translate(-50%, 20px) scale(1.4);
   }
 
   .subscribe-text {
@@ -621,12 +652,14 @@ video {
     line-height: 39px;
     text-align: center;
     padding: 20px;
+    padding-top: 30px;
   }
 
   .email-form {
     font-size: 16px;
     line-height: 20px;
-    margin: 60px auto;
+    margin: 30px auto;
+    margin-bottom: 60px;
     width: 85%;
     padding: 10px;
   }

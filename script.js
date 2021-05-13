@@ -11,7 +11,7 @@ let mobileNavMenu = document.querySelector('#mobile-nav-menu');
 
 
 window.addEventListener('load', (event) => {
-  scrollPageToTop();
+  // scrollPageToTop();
   initPageScroll();
   initBurgerMenu();
   initModal();

@@ -288,6 +288,10 @@ video {
   justify-content: center;
 }
 
+.page-5 .page-heading {
+  text-align: center;
+}
+
 .page-5-video {
   position: relative;
   z-index: 1;
@@ -299,6 +303,7 @@ video {
   color: #E5EBF370;
   font-size: 48px;
   line-height: 59px;
+  text-align: center;
 }
 
 .email-form {

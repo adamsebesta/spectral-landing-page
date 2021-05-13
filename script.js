@@ -105,7 +105,7 @@ const initPageScroll = () => {
     e.stopPropagation();
   });
   container.addEventListener('wheel', _scrollY);
-  _swipe(container);
+  // _swipe(container);
   var tops = document.querySelectorAll('.top');
   for (var i = 0; i < tops.length; i++) {
     tops[i].addEventListener('click', function () {

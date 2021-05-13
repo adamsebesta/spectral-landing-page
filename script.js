@@ -8,6 +8,8 @@ let burger = document.querySelector('#burger-menu');
 let burgerIcon = document.querySelector('#burger-icon');
 let navMenu = document.querySelector('#nav-menu');
 let mobileNavMenu = document.querySelector('#mobile-nav-menu');
+let emailForm = document.querySelector('#email-form');
+let submitBtn = document.querySelector('#mc-embedded-subscribe');
 
 
 window.addEventListener('load', (event) => {
@@ -15,6 +17,7 @@ window.addEventListener('load', (event) => {
   initPageScroll();
   initBurgerMenu();
   initModal();
+  resetFormOnSubmit();
 });
 
 const initPageScroll = () => {
@@ -130,7 +133,7 @@ const mobileToggleMenu = () => {
         // slight delay when bringing 'app' button back
         setTimeout(() => {
           appBtnWrapper.style.display = "";
-        }, 550)
+        }, 100)
         body.classList.remove('stop-scroll');
         mobileNavMenu.style.transform = "translateY(-100%)";
 
@@ -154,3 +157,11 @@ const scrollPageToTop = () => {
     behavior: 'smooth',
   })
 };
+
+const resetFormOnSubmit = () => {
+  if (emailForm && submitBtn) {
+    submitBtn.addEventListener('click', () => {
+      emailForm.reset();
+    })
+  }
+}

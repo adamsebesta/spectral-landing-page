@@ -13,7 +13,7 @@ let submitBtn = document.querySelector('#mc-embedded-subscribe');
 
 
 window.addEventListener('load', (event) => {
-  // scrollPageToTop();
+  scrollPageToTop();
   initPageScroll();
   initBurgerMenu();
   initModal();

@@ -45,6 +45,7 @@ input {
 
 #nav-menu {
   transform: translateX(125%);
+  visibility: hidden;
   transition: 0.3s all ease-out;
 }
 

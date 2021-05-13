@@ -128,11 +128,13 @@ const initBurgerMenu = () => {
         setTimeout(() => {
           navBtn.style.display = "";
         }, 150)
+
         navMenu.style.transform = "translateX(120%)";
 
       } else {
         burgerIcon.classList.add('open');
         navBtn.style.display = "none"
+        navMenu.style.visibility = "visible";
         navMenu.style.transform = "translateX(0)";
       }
     })

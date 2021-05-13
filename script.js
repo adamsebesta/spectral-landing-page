@@ -163,15 +163,16 @@ const mobileToggleMenu = () => {
         // slight delay when bringing 'app' button back
         setTimeout(() => {
           navBtn.style.display = "";
-        }, 150)
-
+        }, 550)
+        body.classList.remove('stop-scroll');
         mobileNavMenu.style.transform = "translateY(-100%)";
 
       } else {
         // open menu
         burgerIcon.classList.add('open');
         navBtn.style.display = "none"
-        body.style.overflow = 'hidden';
+        // inhibit scroll
+        body.classList.add('stop-scroll');
         mobileNavMenu.style.visibility = "visible";
         mobileNavMenu.style.transform = "translateY(0)";
       }

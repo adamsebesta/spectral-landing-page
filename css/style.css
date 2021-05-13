@@ -395,6 +395,11 @@ video {
     display: block !important;
   }
 
+  .stop-scroll {
+    position: fixed;
+    width: 100%;
+  }
+
   .page-container {
     flex-direction: column;
     width: 85%;

@@ -37,9 +37,9 @@ const initPageScroll = () => {
         hold = false;
       }, 1000);
     }
-    // console.log(scdir + ':' + slength + ':' + plength + ':' + (plength - plength / pnls));
   }
-  /*[swipe detection on touchscreen devices]*/
+
+  /*[swipe detection on touchscreen devices - if you want it]*/
   // function _swipe(obj) {
   //   var swdir,
   //     sX,
@@ -116,6 +116,14 @@ const initPageScroll = () => {
 }
 
 const initBurgerMenu = () => {
+  if (window.innerWidth >= 1100) {
+    desktopToggleMenu();
+  } else {
+    mobileToggleMenu();
+  }
+}
+
+const desktopToggleMenu = () => {
   let burger = document.querySelector('#burger-menu');
   let burgerIcon = document.querySelector('#burger-icon');
   let navBtn = document.querySelector('nav #nav-btn');
@@ -140,6 +148,37 @@ const initBurgerMenu = () => {
     })
   }
 }
+
+const mobileToggleMenu = () => {
+  let burger = document.querySelector('#burger-menu');
+  let burgerIcon = document.querySelector('#burger-icon');
+  let navBtn = document.querySelector('nav #nav-btn');
+  let mobileNavMenu = document.querySelector('#mobile-nav-menu');
+  let body = document.querySelector('body');
+  if (burger) {
+    burger.addEventListener('touchstart', (e) => {
+      if (burgerIcon.classList.contains('open')) {
+        // close menu
+        burgerIcon.classList.remove('open');
+        // slight delay when bringing 'app' button back
+        setTimeout(() => {
+          navBtn.style.display = "";
+        }, 150)
+
+        mobileNavMenu.style.transform = "translateY(-100%)";
+
+      } else {
+        // open menu
+        burgerIcon.classList.add('open');
+        navBtn.style.display = "none"
+        body.style.overflow = 'hidden';
+        mobileNavMenu.style.visibility = "visible";
+        mobileNavMenu.style.transform = "translateY(0)";
+      }
+    })
+  }
+}
+
 
 const scrollPageToTop = () => {
   window.scrollTo({

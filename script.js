@@ -106,14 +106,14 @@ const desktopToggleMenu = () => {
         burgerIcon.classList.remove('open');
         // slight delay when bringing 'app' button back
         setTimeout(() => {
-          appBtn.style.display = "";
+          appBtnWrapper.style.display = "";
         }, 150)
 
         navMenu.style.transform = "translateX(120%)";
 
       } else {
         burgerIcon.classList.add('open');
-        appBtn.style.display = "none"
+        appBtnWrapper.style.display = "none"
         navMenu.style.visibility = "visible";
         navMenu.style.transform = "translateX(0)";
       }

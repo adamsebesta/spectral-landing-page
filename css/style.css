@@ -35,7 +35,8 @@ input {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 1;
+  background-color: #0F0F18;
+  z-index: 2;
 }
 
 .top-nav-right {

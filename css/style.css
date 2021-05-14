@@ -8,6 +8,10 @@ body {
   scroll-behavior: smooth;
 }
 
+*:focus {
+  outline: none
+}
+
 h3,
 h5,
 p,

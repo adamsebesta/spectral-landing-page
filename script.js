@@ -93,6 +93,14 @@ const initModal = () => {
         body.classList.remove('stop-scroll');
       }
     })
+    // close modal on blurry click
+    modal.addEventListener('click', (e) => {
+      if (window.innerWidth >= 1100) {
+        if (e.target == modal) {
+          modal.style.display = 'none';
+        }
+      }
+    })
   }
 }
 

@@ -351,6 +351,7 @@ video {
 }
 
 /* page 1 */
+
 .page-1 .page-heading:nth-child(1),
 .page-1 .page-heading:nth-child(2) {
   font-size: 56px;
@@ -363,15 +364,20 @@ video {
 
 .page-1-video {
   /* // to kill black line on right of video */
-  transform: scale(1.1) translateX(20px);
+  transform: scale(1.1) translateY(45px);
   float: left;
 }
 
 /* page 2 */
+
+.page-2 .page-container-left {
+  max-width: 490px;
+}
+
 .page-2-geo {
   position: absolute;
   right: 0;
-  width: 46%;
+  width: 500px;
 }
 
 .page-2-video {
@@ -741,7 +747,7 @@ video {
     margin: 30px auto;
     margin-bottom: 60px;
     width: 85%;
-    padding: 10px;
+    padding: 15px;
   }
 
   .email-field {

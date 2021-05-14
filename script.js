@@ -161,7 +161,9 @@ const scrollPageToTop = () => {
 const resetFormOnSubmit = () => {
   if (emailForm && submitBtn) {
     submitBtn.addEventListener('click', () => {
-      emailForm.reset();
+      setTimeout(() => {
+        emailForm.reset();
+      }, 1000)
     })
   }
 }

@@ -175,6 +175,9 @@ video {
   display: none;
 }
 
+
+/* modal */
+
 #modal {
   position: fixed;
   display: none;
@@ -197,10 +200,56 @@ video {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+
 }
 
 .modal-content .btn {
   padding: 15px 120px;
+}
+
+
+/* scroll-top */
+#scroll-top {
+  position: absolute;
+  z-index: 2;
+  bottom: 30px;
+  right: 20px;
+  background: rgb(7 6 6 / 70%);
+  width: 50px;
+  height: 50px;
+  display: block;
+  text-decoration: none;
+  -webkit-border-radius: 35px;
+  -moz-border-radius: 35px;
+  border-radius: 35px;
+  display: none;
+  -webkit-transition: all 0.3s linear;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+
+
+#scroll-top:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.arrow {
+  display: inline-block;
+  position: relative;
+  top: 20px;
+  left: 17px;
+  width: 12px;
+  height: 12px;
+  border-top: 3px solid #DDE5F2;
+  border-right: 3px solid #DDE5F2;
+}
+
+.arrow-top {
+  transform: rotate(-45deg);
 }
 
 
@@ -209,6 +258,7 @@ video {
   width: 100%;
   overflow: hidden;
   transition: 1s cubic-bezier(0.5, 0, 0.5, 1);
+  transform: translateY(0vh);
 
 }
 
@@ -488,9 +538,15 @@ video {
     width: 100%;
   }
 
-  .modal-full-page .modal .modal-top-logo {
+  .modal-full-page .modal-top-logo {
     position: absolute;
     top: 25px;
+  }
+
+  .modal-content img:nth-child(2),
+  .modal-content h3,
+  .modal-content #back-btn {
+    transform: translateY(-40px);
   }
 
   .page-container {

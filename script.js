@@ -10,6 +10,7 @@ let navMenu = document.querySelector('#nav-menu');
 let mobileNavMenu = document.querySelector('#mobile-nav-menu');
 let emailForm = document.querySelector('#email-form');
 let submitBtn = document.querySelector('#mc-embedded-subscribe');
+let scrollTopBtn = document.querySelector('#scroll-top');
 
 
 window.addEventListener('load', (event) => {
@@ -17,6 +18,7 @@ window.addEventListener('load', (event) => {
   initPageScroll();
   initBurgerMenu();
   initModal();
+  initScrollTopButton();
   resetFormOnSubmit();
 });
 
@@ -166,4 +168,28 @@ const resetFormOnSubmit = () => {
       }, 1000)
     })
   }
+}
+
+const initScrollTopButton = () => {
+  container.addEventListener('wheel', () => {
+    // if not on page 1
+    setTimeout(() => {
+      if (window.innerWidth >= 1100) {
+        if (container.style.transform != 'translateY(0vh)') {
+          scrollTopBtn.style.display = "block"
+        } else {
+          scrollTopBtn.style.display = "none"
+        }
+      }
+    }, 200)
+  })
+
+  if (window.innerWidth >= 1100) {
+    scrollTopBtn.addEventListener('click', () => {
+      // scroll to top and remove button
+      container.style.transform = 'translateY(0)';
+      scrollTopBtn.style.display = "none"
+    })
+  }
+
 }

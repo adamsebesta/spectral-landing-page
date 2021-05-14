@@ -19,32 +19,10 @@ window.addEventListener('load', (event) => {
   initBurgerMenu();
   initModal();
   initScrollTopButton();
-  submitEmailForm();
-  // resetFormOnSubmit();
+  // submitEmailForm();
+  resetFormOnSubmit();
+  initArrowKeyScroll();
 
-  var target = document.getElementById('mce-success-response');
-
-  // create an observer instance
-  var observer = new MutationObserver(function (mutations) {
-    mutations.forEach(function (mutation) {
-      if (target.innerHTML === "Thank you for subscribing!") {
-        target.innerHTML = "Check your email!";
-        console.log('e')
-      } else {
-        console.log('e')
-      }
-    });
-  });
-
-  // configuration of the observer:
-  var config = {
-    attributes: true,
-    childList: true,
-    characterData: true
-  };
-
-  // pass in the target node, as well as the observer options
-  observer.observe(target, config);
 });
 
 const initPageScroll = () => {
@@ -193,29 +171,45 @@ const scrollPageToTop = () => {
   })
 };
 
-// const resetFormOnSubmit = () => {
-//   if (emailForm && submitBtn) {
-//     submitBtn.addEventListener('click', () => {
-//       setTimeout(() => {
-//         emailForm.reset();
-//       }, 1000)
-//     })
-//   }
-// }
-
-const submitEmailForm = () => {
-  submitBtn.addEventListener('click', async (e) => {
-    // emailForm.submit();
-    let res = await fetch('https://finance.us7.list-manage.com/subscribe/post?u=1574c1720b8bccb0a7c06c9a4&amp;id=6ed13096dd', {
-      method: 'POST',
-      mode: 'cors', // no-cors, *cors, same-origin
-      cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-      credentials: 'same-origin', // include, *same-origin, omit
+const resetFormOnSubmit = () => {
+  if (emailForm && submitBtn) {
+    submitBtn.addEventListener('click', () => {
+      setTimeout(() => {
+        emailForm.reset();
+      }, 1000)
     })
-    let data = await res.json()
-    console.log(data)
-    e.preventDefault();
-    return false;
+  }
+}
+
+const initArrowKeyScroll = () => {
+  document.addEventListener('keyup', function (e) {
+    if (window.innerWidth >= 1100) {
+      let transform = container.style.transform;
+      // get current transform value from container
+      let curr = parseInt(transform.match(/(\d+)/)[0]);
+      if (e.code == 'ArrowUp') {
+        if (transform != "translateY(0px)" && transform != "translateY(0vh)") {
+          let newVh = `translateY(${(curr * -1) + 100}vh)`;
+          container.style.transform = newVh;
+        }
+      }
+      if (e.code == 'ArrowDown') {
+        if (transform != "translateY(-400vh)") {
+          container.style.transform = `translateY(${(curr * -1) - 100}vh)`;
+        }
+      }
+      // hide/show scroll top button
+      setTimeout(() => {
+        if (container.style.transform != 'translateY(0vh)' && container.style.transform != 'translateY(0px)') {
+          scrollTopBtn.style.display = "block"
+        } else {
+          scrollTopBtn.style.display = "none"
+          console.log()
+        }
+      }, 200)
+
+
+    }
   })
 }
 

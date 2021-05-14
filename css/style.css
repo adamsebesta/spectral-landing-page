@@ -19,6 +19,11 @@ input {
   font-weight: 600;
 }
 
+a {
+  text-decoration: none;
+
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -350,6 +355,12 @@ video {
   margin: 0;
 }
 
+.more-info-wrapper {
+  height: 100px;
+  display: flex;
+  align-items: flex-end;
+}
+
 /* page 1 */
 
 .page-1 .page-heading:nth-child(1),
@@ -373,6 +384,7 @@ video {
 .page-2 .page-container-left {
   max-width: 490px;
 }
+
 
 .page-2-geo {
   position: absolute;
@@ -575,6 +587,11 @@ video {
     line-height: 39px;
     color: #E5EBF3;
     margin: 20px 0;
+  }
+
+  .more-info-wrapper {
+    height: unset;
+    align-items: unset;
   }
 
   .page-desc {

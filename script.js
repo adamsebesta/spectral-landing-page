@@ -9,7 +9,7 @@ let burgerIcon = document.querySelector('#burger-icon');
 let navMenu = document.querySelector('#nav-menu');
 let mobileNavMenu = document.querySelector('#mobile-nav-menu');
 let emailForm = document.querySelector('#email-form');
-let submitBtn = document.querySelector('#mc-embedded-subscribe');
+let submitBtn = document.querySelector('#submit-btn');
 let scrollTopBtn = document.querySelector('#scroll-top');
 
 
@@ -19,31 +19,32 @@ window.addEventListener('load', (event) => {
   initBurgerMenu();
   initModal();
   initScrollTopButton();
-  resetFormOnSubmit();
+  submitEmailForm();
+  // resetFormOnSubmit();
 
-  //   var target = document.getElementById('mce-success-response');
+  var target = document.getElementById('mce-success-response');
 
-  //   // create an observer instance
-  //   var observer = new MutationObserver(function (mutations) {
-  //     mutations.forEach(function (mutation) {
-  //       if (target.innerHTML === "Thank you for subscribing!") {
-  //         target.innerHTML = "Check your email!";
+  // create an observer instance
+  var observer = new MutationObserver(function (mutations) {
+    mutations.forEach(function (mutation) {
+      if (target.innerHTML === "Thank you for subscribing!") {
+        target.innerHTML = "Check your email!";
+        console.log('e')
+      } else {
+        console.log('e')
+      }
+    });
+  });
 
-  //       } else {
-  //         console.log('e')
-  //       }
-  //     });
-  //   });
+  // configuration of the observer:
+  var config = {
+    attributes: true,
+    childList: true,
+    characterData: true
+  };
 
-  //   // configuration of the observer:
-  //   var config = {
-  //     attributes: true,
-  //     childList: true,
-  //     characterData: true
-  //   };
-
-  //   // pass in the target node, as well as the observer options
-  //   observer.observe(target, config);
+  // pass in the target node, as well as the observer options
+  observer.observe(target, config);
 });
 
 const initPageScroll = () => {
@@ -192,14 +193,27 @@ const scrollPageToTop = () => {
   })
 };
 
-const resetFormOnSubmit = () => {
-  if (emailForm && submitBtn) {
-    submitBtn.addEventListener('click', () => {
-      setTimeout(() => {
-        emailForm.reset();
-      }, 1000)
+// const resetFormOnSubmit = () => {
+//   if (emailForm && submitBtn) {
+//     submitBtn.addEventListener('click', () => {
+//       setTimeout(() => {
+//         emailForm.reset();
+//       }, 1000)
+//     })
+//   }
+// }
+
+const submitEmailForm = () => {
+  submitBtn.addEventListener('click', async (e) => {
+    // emailForm.submit();
+    let res = await fetch('https://finance.us7.list-manage.com/subscribe/post?u=1574c1720b8bccb0a7c06c9a4&amp;id=6ed13096dd', {
+      method: 'POST',
     })
-  }
+    let data = await res.json()
+    console.log(data)
+    e.preventDefault();
+    return false;
+  })
 }
 
 const initScrollTopButton = () => {

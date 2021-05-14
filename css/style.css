@@ -479,7 +479,7 @@ video {
 
 .email-field:focus {
   outline-width: 0;
-
+  border-bottom: 1px solid #686868
 }
 
 .email-form::placeholder {
@@ -772,7 +772,7 @@ video {
   .email-field {
     font-size: 12px;
     line-height: 20px;
-    width: 212px;
+    width: 150px;
   }
 
   .email-form .btn {
@@ -780,7 +780,7 @@ video {
   }
 
   .email-form .btn-gradient-wrapper {
-    width: 100px;
+    /* width: 100px; */
   }
 
 

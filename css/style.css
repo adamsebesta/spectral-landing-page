@@ -221,7 +221,7 @@ video {
 #scroll-top {
   position: absolute;
   z-index: 2;
-  bottom: 30px;
+  bottom: 55px;
   right: 20px;
   background: rgb(7 6 6 / 70%);
   width: 50px;
@@ -416,6 +416,11 @@ video {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+}
+
+.page-5 .page-5-content {
+  transform: translateY(-20px);
 }
 
 .page-5 .page-heading {
@@ -727,6 +732,11 @@ video {
   }
 
   /* page-5 */
+
+  .page-5 .page-5-content {
+    transform: unset
+  }
+
   .page-5 .page-heading {
     text-align: center;
   }

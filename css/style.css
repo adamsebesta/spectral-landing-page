@@ -490,6 +490,10 @@ video {
   line-height: 26px;
 }
 
+.submit-btn {
+  -webkit-appearance: none;
+}
+
 /* page 5 */
 
 .footer {

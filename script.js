@@ -208,6 +208,9 @@ const submitEmailForm = () => {
     // emailForm.submit();
     let res = await fetch('https://finance.us7.list-manage.com/subscribe/post?u=1574c1720b8bccb0a7c06c9a4&amp;id=6ed13096dd', {
       method: 'POST',
+      mode: 'cors', // no-cors, *cors, same-origin
+      cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+      credentials: 'same-origin', // include, *same-origin, omit
     })
     let data = await res.json()
     console.log(data)

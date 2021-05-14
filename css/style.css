@@ -332,16 +332,8 @@ video {
   cursor: pointer;
 }
 
-/* .btn-gradient {
-  border: 2px solid;
-  border-image-slice: 1;
-  border-width: 2px;
-  border-radius: 10px;
-  border-image-source: linear-gradient(257.92deg, #F04829 5.36%, #FAAF40 55.62%, #2D97FC 89.97%);
-} */
-
 .btn-gradient-wrapper {
-  width: 130px;
+  /* width: 130px; */
   padding: 1px 1px;
   border-radius: 100px;
   position: relative;

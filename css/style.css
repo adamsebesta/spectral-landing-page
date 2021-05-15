@@ -803,6 +803,7 @@ video {
 
   .mailchimp-response-wrapper {
     width: 85%;
+    height: 35px;
     margin: 0 auto;
     margin-bottom: 50px;
   }

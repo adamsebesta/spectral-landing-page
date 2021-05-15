@@ -22,9 +22,7 @@ window.addEventListener('load', (event) => {
   initModal();
   initScrollTopButton();
   initSubmitEmailForm();
-  resetFormOnSubmit();
   initArrowKeyScroll();
-
 });
 
 const initPageScroll = () => {
@@ -173,15 +171,6 @@ const scrollPageToTop = () => {
   })
 };
 
-const resetFormOnSubmit = () => {
-  if (emailForm && submitBtn) {
-    submitBtn.addEventListener('click', () => {
-      setTimeout(() => {
-        emailForm.reset();
-      }, 1000)
-    })
-  }
-}
 
 const initArrowKeyScroll = () => {
   document.addEventListener('keyup', function (e) {
@@ -252,6 +241,7 @@ const initSubmitEmailForm = () => {
       if (data.status == 400) {
         mailchimpResponse.innerText = data.detail
       } else {
+        emailInput.value = '';
         mailchimpResponse.innerText = "Thank you for subscribing!"
       }
     }, 200)

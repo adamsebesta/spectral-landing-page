@@ -239,7 +239,12 @@ const initSubmitEmailForm = () => {
       })
       let data = await res.json();
       if (data.status == 400) {
-        mailchimpResponse.innerText = data.detail
+        let splitText = data.detail.split('.')
+        if (splitText.contains('Use PUT to insert or update list members')) {
+          mailchimpResponse.innerText = splitText.pop().pop() + '.';
+        } else {
+          mailchimpResponse.innerText = data.detail
+        }
       } else {
         emailInput.value = '';
         mailchimpResponse.innerText = "Thank you for subscribing!"

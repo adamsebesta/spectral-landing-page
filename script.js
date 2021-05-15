@@ -240,7 +240,7 @@ const initScrollTopButton = () => {
 
 const initSubmitEmailForm = () => {
   submitBtn.addEventListener('click', async (e) => {
-    console.log(email.input.value)
+    console.log(emailInput.value)
     let res = await fetch('https://spectral-landing.azurewebsites.net/api/mailchimpAddNewSub', {
       method: 'POST',
       body: {

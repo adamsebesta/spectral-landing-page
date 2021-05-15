@@ -228,10 +228,6 @@ const initScrollTopButton = () => {
 
 }
 
-const initSubmitEmailForm = () => {
-  submitBtn.addEventListener('click', sendMailchimpReq())
-}
-
 const sendMailchimpReq = () => {
   setTimeout(async () => {
     if (emailInput.value) {
@@ -257,4 +253,9 @@ const sendMailchimpReq = () => {
       }
     }
   }, 200)
+}
+
+const initSubmitEmailForm = () => {
+  submitBtn.addEventListener('click', sendMailchimpReq)
+  submitBtn.addEventListener('touchstart', sendMailchimpReq)
 }

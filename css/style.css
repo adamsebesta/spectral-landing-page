@@ -774,11 +774,15 @@ video {
 
   /* mailchimp */
 
+  .email-form-wrapper {
+    width: 95%;
+    margin-bottom: 40px;
+  }
   .email-form {
     font-size: 16px;
     line-height: 20px;
     margin: 30px auto;
-    margin-bottom: 60px;
+    margin-bottom: 5px;
     width: 85%;
     padding: 15px;
   }
@@ -795,6 +799,13 @@ video {
 
   .email-form .btn-gradient-wrapper {
     /* width: 100px; */
+  }
+
+  #mailchimp-response {
+    padding-left: 5%;
+    margin-bottom: 50px;
+    font-size: 12px;
+    line-height: 18px;
   }
 
   .footer {

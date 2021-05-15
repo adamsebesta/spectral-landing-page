@@ -801,10 +801,14 @@ video {
     /* width: 100px; */
   }
 
+  .mailchimp-response-wrapper {
+    width: 85%;
+    margin: 0 auto;
+    margin-bottom: 50px;
+  }
   #mailchimp-response {
     padding-left: 5%;
-    margin-bottom: 50px;
-    font-size: 12px;
+    font-size: 11px;
     line-height: 18px;
   }
 

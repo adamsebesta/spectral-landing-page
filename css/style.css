@@ -420,7 +420,7 @@ video {
 }
 
 .page-5 .page-5-content {
-  transform: translateY(-20px);
+  transform: translateY(-35px);
 }
 
 .page-5 .page-heading {
@@ -465,14 +465,15 @@ video {
 .email-form {
   display: flex;
   justify-content: space-between;
-  width: 70%;
-  margin: 30px auto;
+  width: 45%;
+  margin: 10px auto;
   padding: 20px;
   border: 1px solid #47474750;
+  ;
 }
 
 .email-field {
-  width: 500px;
+  width: 320px;
   background: transparent;
   border: none;
   text-decoration: none;

@@ -240,8 +240,8 @@ const initSubmitEmailForm = () => {
       let data = await res.json();
       if (data.status == 400) {
         let splitText = data.detail.split('.')
-        if (splitText.contains('Use PUT to insert or update list members')) {
-          mailchimpResponse.innerText = splitText.pop().pop() + '.';
+        if (splitText.includes('Use PUT to insert or update list members')) {
+          mailchimpResponse.innerText = splitText.pop().pop().join();
         } else {
           mailchimpResponse.innerText = data.detail
         }

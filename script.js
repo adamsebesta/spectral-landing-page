@@ -230,25 +230,28 @@ const initScrollTopButton = () => {
 
 const initSubmitEmailForm = () => {
   submitBtn.addEventListener('click', (e) => {
-    setTimeout(async () => {
-      let res = await fetch('https://spectral-landing.azurewebsites.net/api/mailchimpAddNewSub', {
-        method: 'POST',
-        body: JSON.stringify({
-          email: emailInput.value
-        })
-      })
-      let data = await res.json();
-      if (data.status == 400) {
-        let splitText = data.detail.split('.')
-        if (splitText.includes('Use PUT to insert or update list members')) {
-          mailchimpResponse.innerText = splitText.pop().pop().join();
-        } else {
-          mailchimpResponse.innerText = data.detail
+      setTimeout(async () => {
+        if (emailInput.value) {
+          let res = await fetch('https://spectral-landing.azurewebsites.net/api/mailchimpAddNewSub', {
+            method: 'POST',
+            body: JSON.stringify({
+              email: emailInput.value
+            })
+          })
+          let data = await res.json();
+          if (data.status == 400) {
+            let splitText = data.detail.split('.')
+            if (splitText.includes(' Use PUT to insert or update list members')) {
+              mailchimpResponse.innerText = splitText.pop().pop().join();
+            } else {
+              mailchimpResponse.innerText = data.detail
+            }
+          } else {
+            emailInput.value = '';
+            mailchimpResponse.innerText = "Thank you for subscribing!"
+          }
         }
-      } else {
-        emailInput.value = '';
-        mailchimpResponse.innerText = "Thank you for subscribing!"
-      }
-    }, 200)
+      }, 200)
+    }
   })
 }

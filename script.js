@@ -229,30 +229,32 @@ const initScrollTopButton = () => {
 }
 
 const initSubmitEmailForm = () => {
-  submitBtn.addEventListener('click', (e) => {
-    setTimeout(async () => {
-      if (emailInput.value) {
-        let res = await fetch('https://spectral-landing.azurewebsites.net/api/mailchimpAddNewSub', {
-          method: 'POST',
-          body: JSON.stringify({
-            email: emailInput.value
-          })
+  submitBtn.addEventListener('click', sendMailchimpReq())
+}
+
+const sendMailchimpReq = () => {
+  setTimeout(async () => {
+    if (emailInput.value) {
+      let res = await fetch('https://spectral-landing.azurewebsites.net/api/mailchimpAddNewSub', {
+        method: 'POST',
+        body: JSON.stringify({
+          email: emailInput.value
         })
-        let data = await res.json();
-        if (data.status == 400) {
-          let splitText = data.detail.split('.')
-          if (splitText.includes(' Use PUT to insert or update list members')) {
-            let newArr = splitText.splice(0, splitText.length - 1);
-            let finalString = newArr.splice(0, newArr.length - 1);
-            mailchimpResponse.innerText = finalString.join('.');
-          } else {
-            mailchimpResponse.innerText = data.detail
-          }
+      })
+      let data = await res.json();
+      if (data.status == 400) {
+        let splitText = data.detail.split('.')
+        if (splitText.includes(' Use PUT to insert or update list members')) {
+          let newArr = splitText.splice(0, splitText.length - 1);
+          let finalString = newArr.splice(0, newArr.length - 1);
+          mailchimpResponse.innerText = finalString.join('.');
         } else {
-          emailInput.value = '';
-          mailchimpResponse.innerText = "Thank you for subscribing!"
+          mailchimpResponse.innerText = data.detail
         }
+      } else {
+        emailInput.value = '';
+        mailchimpResponse.innerText = "Thank you for subscribing!"
       }
-    }, 200)
-  })
+    }
+  }, 200)
 }

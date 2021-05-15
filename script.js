@@ -243,9 +243,9 @@ const initSubmitEmailForm = () => {
     console.log(emailInput.value)
     let res = await fetch('https://spectral-landing.azurewebsites.net/api/mailchimpAddNewSub', {
       method: 'POST',
-      body: {
+      body: JSON.stringify({
         email: emailInput.value
-      }
+      })
     })
     let data = await res.json();
     console.log(data)

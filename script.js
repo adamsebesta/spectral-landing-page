@@ -246,7 +246,7 @@ const initSubmitEmailForm = () => {
         email: emailInput.value
       }
     })
-    let data = res.json();
+    let data = await res.json();
     console.log(data)
   })
 }

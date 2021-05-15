@@ -12,6 +12,7 @@ let emailForm = document.querySelector('#email-form');
 let submitBtn = document.querySelector('#submit-btn');
 let scrollTopBtn = document.querySelector('#scroll-top');
 let emailInput = document.querySelector('#mce-EMAIL');
+let mailchimpResponse = document.querySelector('#mailchimp-response');
 
 
 window.addEventListener('load', (event) => {
@@ -239,15 +240,20 @@ const initScrollTopButton = () => {
 }
 
 const initSubmitEmailForm = () => {
-  submitBtn.addEventListener('click', async (e) => {
-    console.log(emailInput.value)
-    let res = await fetch('https://spectral-landing.azurewebsites.net/api/mailchimpAddNewSub', {
-      method: 'POST',
-      body: JSON.stringify({
-        email: emailInput.value
+  submitBtn.addEventListener('click', (e) => {
+    setTimeout(async () => {
+      let res = await fetch('https://spectral-landing.azurewebsites.net/api/mailchimpAddNewSub', {
+        method: 'POST',
+        body: JSON.stringify({
+          email: emailInput.value
+        })
       })
-    })
-    let data = await res.json();
-    console.log(data)
+      let data = await res.json();
+      if (data.status == 400) {
+        mailchimpResponse.innerText = data.detail
+      } else {
+        mailchimpResponse.innerText = "Thank you for subscribing!"
+      }
+    }, 200)
   })
 }

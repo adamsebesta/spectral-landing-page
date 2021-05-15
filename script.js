@@ -11,6 +11,7 @@ let mobileNavMenu = document.querySelector('#mobile-nav-menu');
 let emailForm = document.querySelector('#email-form');
 let submitBtn = document.querySelector('#submit-btn');
 let scrollTopBtn = document.querySelector('#scroll-top');
+let emailInput = document.querySelector('#mce-EMAIL');
 
 
 window.addEventListener('load', (event) => {
@@ -19,7 +20,7 @@ window.addEventListener('load', (event) => {
   initBurgerMenu();
   initModal();
   initScrollTopButton();
-  // submitEmailForm();
+  initSubmitEmailForm();
   resetFormOnSubmit();
   initArrowKeyScroll();
 
@@ -235,4 +236,17 @@ const initScrollTopButton = () => {
     })
   }
 
+}
+
+const initSubmitEmailForm = () => {
+  submitBtn.addEventListener('click', async (e) => {
+    let res = await fetch('https://spectral-landing.azurewebsites.net/api/mailchimpAddNewSub', {
+      method: 'POST',
+      body: {
+        email: emailInput.value
+      }
+    })
+    let data = res.json();
+    console.log(data)
+  })
 }

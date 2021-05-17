@@ -394,7 +394,7 @@ video {
 
 .page-1-video {
   /* // to kill black line on right of video */
-  transform: scale(1.1) translate(90px, 10px);
+  transform: scale(1.1) translate(90px, 60px);
   z-index: 1;
 }
 

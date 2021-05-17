@@ -13,9 +13,13 @@ let submitBtn = document.querySelector('#submit-btn');
 let scrollTopBtn = document.querySelector('#scroll-top');
 let emailInput = document.querySelector('#mce-EMAIL');
 let mailchimpResponse = document.querySelector('#mailchimp-response');
+let topNav = document.querySelector('.top-nav');
+let mobileNav = document.querySelector('#mobile-nav-menu');
+let container = document.querySelector('.container');
 
 
 window.addEventListener('load', (event) => {
+  changeBackgroundIfFirefox();
   scrollPageToTop();
   initPageScroll();
   initBurgerMenu();
@@ -255,7 +259,17 @@ const sendMailchimpReq = () => {
   }, 200)
 }
 
+
 const initSubmitEmailForm = () => {
   submitBtn.addEventListener('click', sendMailchimpReq)
   submitBtn.addEventListener('touchstart', sendMailchimpReq)
+}
+
+const changeBackgroundIfFirefox = () => {
+  let isFirefox = typeof InstallTrigger !== 'undefined';
+  if (isFirefox && topNav && mobileNav && container) {
+    [topNav, mobileNav, container].forEach((el) => {
+      el.style.backgroundColor = '#101115'
+    })
+  }
 }

@@ -95,7 +95,7 @@ input:-webkit-autofill {
   line-height: 17px;
   background: none;
   border: none;
-  margin-right: 15px;
+  margin-right: 20px;
   cursor: pointer;
   text-decoration: none;
   font-family: Montserrat;
@@ -324,12 +324,10 @@ video {
 }
 
 .gradient {
-  background: linear-gradient(
-    257.92deg,
-    #f04829 5.36%,
-    #faaf40 55.62%,
-    #2d97fc 89.97%
-  );
+  background: linear-gradient(257.92deg,
+      #f04829 5.36%,
+      #faaf40 55.62%,
+      #2d97fc 89.97%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
@@ -337,7 +335,7 @@ video {
 
 .btn {
   background: #151619;
-  border: 1.63441px solid #f3f6fb;
+  border: 2px solid #f3f6fb;
   box-sizing: border-box;
   border-radius: 100px;
   color: white;
@@ -349,15 +347,13 @@ video {
 
 .btn-gradient-wrapper {
   /* width: 130px; */
-  padding: 1px 1px;
+  padding: 2px 2px;
   border-radius: 100px;
   position: relative;
-  background: linear-gradient(
-    257.92deg,
-    #f04829 5.36%,
-    #faaf40 55.62%,
-    #2d97fc 89.97%
-  );
+  background: linear-gradient(257.92deg,
+      #f04829 5.36%,
+      #faaf40 55.62%,
+      #2d97fc 89.97%);
   z-index: 1;
   /* padding: 3px; */
 }
@@ -487,7 +483,8 @@ video {
   width: 100%;
   margin: 10px auto;
   padding: 20px;
-  border: 1px solid #47474750;
+  border: 2px solid #47474750;
+  border-radius: 5px;
 }
 
 .email-field {
@@ -558,6 +555,7 @@ video {
 /* media queries for mobile */
 
 @media only screen and (max-width: 1100px) {
+
   body,
   .container {
     overflow-y: scroll !important;
@@ -794,6 +792,7 @@ video {
     width: 95%;
     margin-bottom: 40px;
   }
+
   .email-form {
     font-size: 16px;
     line-height: 20px;
@@ -823,6 +822,7 @@ video {
     margin: 0 auto;
     margin-bottom: 50px;
   }
+
   #mailchimp-response {
     font-size: 11px;
     line-height: 18px;

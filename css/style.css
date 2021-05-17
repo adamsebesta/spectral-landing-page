@@ -750,7 +750,7 @@ video {
   }
 
   .page-1-video-wrapper video {
-    transform: scaleX(1.2) translateX(1px);
+    transform: translateX(1px);
     width: 100%;
   }
 

@@ -95,11 +95,15 @@ input:-webkit-autofill {
   line-height: 17px;
   background: none;
   border: none;
-  margin-right: 20px;
+  margin-right: 35px;
   cursor: pointer;
   text-decoration: none;
   font-family: Montserrat;
   cursor: pointer;
+}
+
+.nav-link:nth-child(5) {
+  margin-right: 0;
 }
 
 #burger-icon {
@@ -290,13 +294,15 @@ video {
   width: 80%;
   height: 80%;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   margin: 0 auto;
 }
 
 .page-container-left,
 .page-container-right {
-  width: 50%;
+  width: 40%;
+  display: flex;
+  justify-content: center;
   z-index: 1;
 }
 
@@ -324,10 +330,12 @@ video {
 }
 
 .gradient {
-  background: linear-gradient(257.92deg,
-      #f04829 5.36%,
-      #faaf40 55.62%,
-      #2d97fc 89.97%);
+  background: linear-gradient(
+    257.92deg,
+    #f04829 5.36%,
+    #faaf40 55.62%,
+    #2d97fc 89.97%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
@@ -350,10 +358,12 @@ video {
   padding: 2px 2px;
   border-radius: 100px;
   position: relative;
-  background: linear-gradient(257.92deg,
-      #f04829 5.36%,
-      #faaf40 55.62%,
-      #2d97fc 89.97%);
+  background: linear-gradient(
+    257.92deg,
+    #f04829 5.36%,
+    #faaf40 55.62%,
+    #2d97fc 89.97%
+  );
   z-index: 1;
   /* padding: 3px; */
 }
@@ -377,21 +387,25 @@ video {
   line-height: 70px;
 }
 
-.page-1 .page-container {
+.page-1-video-wrapper {
+  width: 478;
   overflow: hidden;
 }
 
 .page-1-video {
   /* // to kill black line on right of video */
-  transform: scale(1.1) translate(0px, 45px);
-  float: left;
+  transform: scale(1.1) translate(90px, 10px);
   z-index: 1;
+}
+
+.page-1-video-wrapper video {
+  transform: translateX(22px);
 }
 
 /* page 2 */
 
-.page-2 .page-container-left {
-  max-width: 490px;
+.page-2 .page-container-right {
+  justify-content: center;
 }
 
 .page-2-geo {
@@ -401,19 +415,39 @@ video {
 }
 
 .page-2-video {
-  transform: translateX(-50px);
+  transform: translateX(80px);
 }
 
 /* page 3 */
+
+.page-3 .page-container-left {
+  justify-content: center;
+}
+.page-3 .page-container-right {
+  width: 650px;
+  justify-content: center;
+}
 .page-3-geo {
   position: absolute;
   left: 0;
+}
+
+.page-3-video {
+  transform: translateX(-30px) scale(1.2);
 }
 
 /* page 4 */
 .page-4-geo {
   position: absolute;
   right: 0;
+}
+
+.page-4 .page-container-right {
+  justify-content: center;
+}
+
+.page-4-video {
+  transform: translateX(40px);
 }
 
 .page-5-geo {
@@ -554,8 +588,13 @@ video {
 
 /* media queries for mobile */
 
-@media only screen and (max-width: 1100px) {
+/* @media only screen and (min-width: 2000px) {
+  .page-container {
+    width: 60%;
+  }
+} */
 
+@media only screen and (max-width: 1100px) {
   body,
   .container {
     overflow-y: scroll !important;
@@ -661,6 +700,7 @@ video {
     font-size: 19px;
     line-height: 23px;
     margin-bottom: 30px;
+    margin-right: 0;
   }
 
   .top-nav {
@@ -703,6 +743,15 @@ video {
   .page-1-video {
     transform: unset;
   }
+  .page-1-video-wrapper {
+    transform: unset;
+    width: 100% !important;
+  }
+
+  .page-1-video-wrapper video {
+    transform: scaleX(1.2) translateX(1px);
+    width: 100%;
+  }
 
   /* page 2 */
   .page-2 .btn {
@@ -729,6 +778,9 @@ video {
   .page-3 .page-container {
     flex-direction: column-reverse;
   }
+  .page-3 .page-container-right {
+    width: unset;
+  }
 
   .page-3-geo {
     transform: translate(-50%, 67%);
@@ -736,12 +788,14 @@ video {
 
   .page-3-video {
     width: 100% !important;
+    transform: unset;
     padding-bottom: 80px;
   }
 
   /* page-4 */
   .page-4-video {
     width: 100% !important;
+    transform: unset;
     padding: 80px 0;
   }
 

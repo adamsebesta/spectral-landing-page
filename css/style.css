@@ -411,7 +411,8 @@ video {
 .page-2-geo {
   position: absolute;
   right: 0;
-  width: 500px;
+  width: 450px;
+  transform: translateY(20px);
 }
 
 .page-2-video {

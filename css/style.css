@@ -28,6 +28,15 @@ body {
                                   supported by Chrome, Edge, Opera and Firefox */
 }
 
+/* mozilla only */
+@-moz-document url-prefix() {
+  .container,
+  #mobile-nav-menu,
+  .top-nav {
+    background-color: #101115 !important;
+  }
+}
+
 h3,
 h5,
 p,
